@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
-            steps {
-                echo 'Cloning code...'
-                git 'https://github.com/Jadhav-Krishna/jenkins-demo.git'
-            }
-        }
+//         stage('Clone') {
+//             steps {
+//                 echo 'Cloning code...'
+//                 git 'https://github.com/Jadhav-Krishna/jenkins-demo.git'
+//             }
+//         }
 
         stage('Build') {
             steps {
