@@ -16,11 +16,25 @@ pipeline {
             }
         }
 
-        stage('Run') {
-            steps {
-                echo 'Running app...'
-                bat 'java -jar target/jenkins-demo-0.0.1-SNAPSHOT.jar'
-            }
-        }
+//         stage('Run') {
+//             steps {
+//                 echo 'Running app...'
+//                 bat 'java -jar target/jenkins-demo-0.0.1-SNAPSHOT.jar'
+//             }
+//         }
+
+                stage('Docker Build') {
+                    steps {
+                        echo 'Building Docker image...'
+                        bat 'docker build -t jenkins-demo .'
+                    }
+                }
+
+                stage('Docker Run') {
+                    steps {
+                        echo 'Running Docker container...'
+                        bat 'docker run -d -p 8081:8080 jenkins-demo'
+                    }
+                }
     }
 }
